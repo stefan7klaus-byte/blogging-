@@ -1,1 +1,6 @@
-{"name":"zenith-hackers-intelligence","private":true,"type":"module","dependencies":{"openai":"latest"}}
+{
+  "name": "zenith-hackers-intelligence",
+  "private": true,
+  "type": "module",
+  "dependencies": {"openai": "latest"}
+}

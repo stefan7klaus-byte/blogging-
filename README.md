@@ -1,29 +1,26 @@
-# Zenith Hackers Intelligence Blog
+# Zenith Hackers Intelligence
 
-A bright, responsive editorial website inspired by the public information architecture and subject areas of zenithhackers.com.
+GitHub-ready static website with Supabase CMS/authentication and a Supabase Edge Function for the AI assistant.
 
-## Important
+## Upload to GitHub
+Extract this ZIP, then upload all files to the root of your repository, or use the GitHub web uploader.
 
-This project uses **original wording** rather than copying the source site's text verbatim. It covers similar themes: cyber intelligence, cryptocurrency investigations, digital asset tracing, OSINT, fraud awareness, identity protection and cybersecurity.
+## Supabase
+Run:
+1. `supabase/schema.sql`
+2. `supabase/schema-admin.sql`
 
-## Background image
+Create an email/password user in Supabase Authentication, then authorize it:
+`insert into public.admin_users (user_id) values ('YOUR-AUTH-USER-UUID');`
 
-The CSS expects the supplied blog artwork at:
+## AI
+Deploy `supabase/functions/chat/index.ts` as the `chat` Edge Function and configure `OPENAI_API_KEY` as a Supabase secret. Do not put an OpenAI secret in browser code. Supabase Edge Functions are designed for server-side integrations such as OpenAI. See the official Supabase Edge Functions documentation.
 
+## Background
+Place the supplied artwork at:
 `assets/ethical-zenith-blog.jpg`
 
-Add your banner image with that filename to make it the floating full-page background. The page already includes a slow zoom/float effect and a bright overlay.
+The site will work without the image, but the intended floating background effect uses that file.
 
-## Files
-
-- `index.html` — page structure and editorial content
-- `styles.css` — bright glass/cyber visual design and floating background
-- `script.js` — mobile navigation, year and newsletter interaction
-
-## Deploy
-
-The site is plain HTML/CSS/JS and can be published with GitHub Pages without a build step.
-
-## Next build step
-
-Connect the newsletter form, Supabase database and a secure server-side AI endpoint. Never place an OpenAI API key directly in browser JavaScript.
+## Admin
+Open `/admin/` after deployment and sign in with the authorized Supabase user.
