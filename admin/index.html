@@ -7,7 +7,7 @@
 <body><div class="background"></div><main class="section-shell admin-shell">
 <section id="loginPanel" class="glass admin-card">
 <p class="eyebrow">SECURE EDITOR</p><h1>Zenith Publisher</h1><p>Sign in with an authorized Supabase account.</p>
-<form id="loginForm" class="admin-form"><input id="email" type="email" placeholder="Email" required><input id="password" type="password" placeholder="Password" required><button class="button primary">Sign in</button></form><div id="status" class="status"></div>
+<form id="loginForm" class="admin-form"><input id="email" type="email" placeholder="Email" required><input id="password" type="password" placeholder="Password" required><button class="button primary">Sign in</button></form><div id="loginStatus" class="status"></div>
 </section>
 <section id="editorPanel" hidden>
 <div class="topbar"><div><p class="eyebrow">EDITOR DESK</p><h1>Zenith Publisher</h1></div><button id="logoutBtn" class="button secondary">Sign out</button></div>
@@ -16,7 +16,7 @@
 <form id="editorForm" class="admin-form">
 <input id="title" placeholder="Article title" required><input id="slug" placeholder="article-slug" required><select id="category_id" required></select><input id="author_name" value="Zenith Hackers Intelligence" placeholder="Author"><input id="cover_image" placeholder="Cover image URL (optional)"><textarea id="excerpt" placeholder="Short excerpt"></textarea><textarea id="content" placeholder="Article content" required></textarea>
 <label><input id="published" type="checkbox"> Publish this article</label>
-<div class="admin-actions"><button class="button primary">Save article</button><button type="button" id="deleteBtn" class="button secondary" hidden>Delete</button><button type="button" id="newBtn" class="button secondary">New</button></div></form><div id="status" class="status"></div></div>
+<div class="admin-actions"><button class="button primary">Save article</button><button type="button" id="deleteBtn" class="button secondary" hidden>Delete</button><button type="button" id="newBtn" class="button secondary">New</button></div></form><div id="editorStatus" class="status"></div></div>
 <div class="glass admin-card"><h2>Articles</h2><div id="articleList">Loading…</div></div>
 </div></section></main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../supabase-client-config.js"></script><script src="admin.js"></script></body></html>
