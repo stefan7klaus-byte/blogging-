@@ -8,7 +8,7 @@ async function loadSupabaseContent() {
   );
   const { data: articles, error } = await client
     .from('articles')
-    .select('id,title,slug,excerpt,author_name,published_at,categories(name,slug)')
+    .select('id,title,slug,excerpt,author_name,cover_image,published_at,categories(name,slug)')
     .eq('published', true)
     .order('published_at', { ascending: false });
   if (error || !articles?.length) return;
@@ -18,8 +18,10 @@ async function loadSupabaseContent() {
   grid.innerHTML = articles.map(article => {
     const category = article.categories?.name || 'INTELLIGENCE';
     const excerpt = article.excerpt || 'Read the latest Zenith Hackers Intelligence analysis.';
-    const href = article.slug ? `articles/${encodeURIComponent(article.slug)}.html` : '#research';
-    return `<article class="article-card glass">
+    const image = article.cover_image ? `<img src="${escapeHtml(article.cover_image)}" alt="" loading="lazy">` : '';
+    const date = article.published_at ? new Date(article.published_at).toLocaleDateString() : '';
+    const href = article.slug ? `article.html?slug=${encodeURIComponent(article.slug)}` : '#research';
+    return `<article class="article-card glass">${image}
       <span class="tag">${escapeHtml(category)}</span>
       <h3>${escapeHtml(article.title)}</h3>
       <p>${escapeHtml(excerpt)}</p>
@@ -57,7 +59,8 @@ chatForm?.addEventListener('submit',async(e)=>{
  box.lastElementChild.textContent=q; input.value='';
  const loading=document.createElement('div'); loading.className='chat-msg assistant'; loading.textContent='Thinking…'; box.appendChild(loading);
  try{
-  const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q})});
+  const endpoint = window.ZENITH_SUPABASE?.url ? `${window.ZENITH_SUPABASE.url}/functions/v1/chat` : '/api/chat';
+  const res=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:q})});
   const data=await res.json(); loading.textContent=data.reply||data.error||'No response received.';
- }catch(err){loading.textContent='The AI service is not configured yet. Add OPENAI_API_KEY to the server environment.';}
+ }catch(err){loading.textContent='The AI assistant is not deployed yet. Deploy the Supabase Edge Function and configure its server-side OpenAI key.';}
 });
