@@ -38,6 +38,7 @@ alter table public.admin_users enable row level security;
 revoke all on table public.categories from anon, authenticated;
 revoke all on table public.articles from anon, authenticated;
 revoke all on table public.admin_users from anon, authenticated;
+grant select on public.admin_users to authenticated;
 
 grant select on public.categories to anon, authenticated;
 grant select on public.articles to anon, authenticated;
