@@ -2,3 +2,5 @@
 .search-wrap{display:flex;gap:10px;margin:0 0 28px}
 .search-wrap input{width:100%;padding:15px 17px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.82);font:inherit;color:var(--ink)}
 .article-card[hidden]{display:none}
+
+.article-page{max-width:900px}.article-body{padding:48px;border-radius:28px}.article-body h2{font-size:2rem;margin-top:42px}.ai-chat{padding:24px;border-radius:24px}.chat-messages{min-height:220px;max-height:420px;overflow:auto;padding:8px}.chat-msg{padding:12px 16px;border-radius:16px;margin:10px 0;max-width:82%;white-space:pre-wrap}.chat-msg.assistant{background:#f4fbff;border:1px solid var(--line)}.chat-msg.user{margin-left:auto;background:linear-gradient(135deg,var(--blue),var(--cyan));color:white}.chat-form{display:flex;gap:10px;margin-top:16px}.chat-form input{flex:1;min-width:0;padding:14px;border:1px solid var(--line);border-radius:13px;font:inherit}@media(max-width:680px){.article-body{padding:26px}.chat-form{flex-direction:column}}
