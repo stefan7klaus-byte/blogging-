@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stefan7klaus-byte.github.io/blogging/sitemap.xml
