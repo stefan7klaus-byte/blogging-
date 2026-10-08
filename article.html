@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Article | Zenith Hackers Intelligence</title><meta name="description" content="Zenith Hackers Intelligence article">
+<link rel="stylesheet" href="styles.css"></head>
+<body><div class="background"></div><main class="section-shell article-page">
+<a class="button secondary" href="index.html#articles">← Back to articles</a>
+<article id="article" class="article-body glass" style="margin-top:20px"><p class="eyebrow">ZENITH HACKERS INTELLIGENCE</p><h1>Loading article…</h1></article>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-client-config.js"></script>
+<script>
+const client=window.supabase.createClient(window.ZENITH_SUPABASE.url,window.ZENITH_SUPABASE.publishableKey);
+const root=document.getElementById('article');
+const slug=new URLSearchParams(location.search).get('slug');
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+async function load(){
+ if(!slug){root.innerHTML='<h1>Article not found</h1><p>No article slug was provided.</p>';return;}
+ const {data,error}=await client.from('articles').select('title,content,excerpt,author_name,cover_image,published_at,categories(name)').eq('slug',slug).eq('published',true).single();
+ if(error||!data){root.innerHTML='<h1>Article not found</h1><p>This article may have been unpublished or moved.</p>';return;}
+ const date=data.published_at?new Date(data.published_at).toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'}):'';
+ const body=esc(data.content).replace(/\n/g,'<br><br>');
+ root.innerHTML=(data.cover_image?'<img src="'+esc(data.cover_image)+'" alt="" style="width:100%;max-height:460px;object-fit:cover;border-radius:18px;margin-bottom:28px">':'')+
+ '<span class="tag">'+esc(data.categories?.name||'INTELLIGENCE')+'</span><h1>'+esc(data.title)+'</h1><p>'+esc(data.excerpt||'')+'</p><small>'+esc(data.author_name||'Zenith Hackers Intelligence')+' · '+esc(date)+'</small><div class="article-content" style="margin-top:32px;line-height:1.85">'+body+'</div>';
+}
+load();
+</script></body></html>
