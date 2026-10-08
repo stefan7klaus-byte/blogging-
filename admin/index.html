@@ -1,9 +1,22 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zenith Admin</title><link rel="stylesheet" href="../styles.css"></head>
-<body><div class="background"></div><main class="section-shell">
-<div class="glass about-card">
-<p class="eyebrow">EDITOR DESK</p><h1>Zenith Publisher</h1>
-<p class="lead">The publishing dashboard will connect to Supabase Auth and the articles table after your Supabase project credentials are configured.</p>
-<div class="note"><strong>Next:</strong> run <code>supabase/schema.sql</code> in Supabase SQL Editor, then connect the project's URL and publishable key through your hosting environment.</div>
-<a class="button primary" href="../index.html">Return to website</a>
-</div></main></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zenith Publisher</title><link rel="stylesheet" href="../styles.css">
+<style>
+.admin-shell{max-width:1050px;margin:40px auto}.admin-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}.admin-card{padding:28px;border-radius:24px}.admin-form{display:grid;gap:12px}.admin-form input,.admin-form textarea,.admin-form select{width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff}.admin-form textarea{min-height:220px;resize:vertical}.admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}.status{min-height:24px;margin:8px 0;font-weight:600}.status.error{color:#b42318}.admin-row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.admin-row small{display:block;opacity:.7;margin-top:4px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px}@media(max-width:800px){.admin-grid{grid-template-columns:1fr}.admin-shell{margin:20px auto;padding:0 16px}}
+</style></head>
+<body><div class="background"></div><main class="section-shell admin-shell">
+<section id="loginPanel" class="glass admin-card">
+<p class="eyebrow">SECURE EDITOR</p><h1>Zenith Publisher</h1><p>Sign in with an authorized Supabase account.</p>
+<form id="loginForm" class="admin-form"><input id="email" type="email" placeholder="Email" required><input id="password" type="password" placeholder="Password" required><button class="button primary">Sign in</button></form><div id="status" class="status"></div>
+</section>
+<section id="editorPanel" hidden>
+<div class="topbar"><div><p class="eyebrow">EDITOR DESK</p><h1>Zenith Publisher</h1></div><button id="logoutBtn" class="button secondary">Sign out</button></div>
+<div class="admin-grid">
+<div class="glass admin-card"><h2 id="formTitle">New article</h2>
+<form id="editorForm" class="admin-form">
+<input id="title" placeholder="Article title" required><input id="slug" placeholder="article-slug" required><select id="category_id" required></select><input id="author_name" value="Zenith Hackers Intelligence" placeholder="Author"><input id="cover_image" placeholder="Cover image URL (optional)"><textarea id="excerpt" placeholder="Short excerpt"></textarea><textarea id="content" placeholder="Article content" required></textarea>
+<label><input id="published" type="checkbox"> Publish this article</label>
+<div class="admin-actions"><button class="button primary">Save article</button><button type="button" id="deleteBtn" class="button secondary" hidden>Delete</button><button type="button" id="newBtn" class="button secondary">New</button></div></form><div id="status" class="status"></div></div>
+<div class="glass admin-card"><h2>Articles</h2><div id="articleList">Loading…</div></div>
+</div></section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../supabase-client-config.js"></script><script src="admin.js"></script></body></html>
