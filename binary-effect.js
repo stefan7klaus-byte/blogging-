@@ -117,3 +117,21 @@
 
 // Load the shared guest community layer on pages using this shared visual effect.
 (() => { const current = document.currentScript; const src = current && current.src ? new URL("community.js", current.src).href : new URL("community.js", location.href).href; if (!document.querySelector('script[src="' + src + '"]')) { const s = document.createElement("script"); s.src = src; s.defer = true; document.body.appendChild(s); } })();
+
+
+/* Site-wide floating WhatsApp contact button */
+(function(){
+  if(window.__zhWhatsAppButton)return;window.__zhWhatsAppButton=true;
+  function mount(){
+    if(!document.body||document.querySelector(".zh-whatsapp"))return;
+    if(!document.getElementById("zh-whatsapp-style")){
+      const style=document.createElement("style");style.id="zh-whatsapp-style";
+      style.textContent=".zh-whatsapp{position:fixed;left:18px;bottom:22px;z-index:2147483000;display:flex;align-items:center;gap:9px;padding:12px 16px;border-radius:999px;background:#25d366;color:#fff!important;text-decoration:none!important;font:600 14px/1.1 system-ui,sans-serif;box-shadow:0 6px 24px #0005;transition:transform .18s ease,box-shadow .18s ease}.zh-whatsapp:hover,.zh-whatsapp:focus-visible{transform:translateY(-3px);box-shadow:0 9px 28px #0007}.zh-whatsapp svg{width:24px;height:24px;fill:currentColor;flex:none}.zh-whatsapp-label{white-space:nowrap}@media(max-width:480px){.zh-whatsapp{left:12px;bottom:14px;padding:11px}.zh-whatsapp-label{display:none}}";
+      document.head.appendChild(style);
+    }
+    const a=document.createElement("a");a.className="zh-whatsapp";a.href="https://wa.me/447552486027";a.target="_blank";a.rel="noopener noreferrer";a.setAttribute("aria-label","Chat with us on WhatsApp");a.title="Chat with us on WhatsApp";
+    a.innerHTML='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .8A15 15 0 0 0 3.1 23.5L1 31l7.7-2A15 15 0 1 0 16 .8zm0 27.3a12.2 12.2 0 0 1-6.2-1.7l-.5-.3-4.6 1.2 1.2-4.5-.3-.5A12.2 12.2 0 1 1 16 28.1zm6.7-9.1c-.4-.2-2.1-1-2.5-1.1-.3-.1-.6-.2-.8.2s-.9 1.1-1.1 1.3-.4.2-.8.1a10 10 0 0 1-3-1.8 11.2 11.2 0 0 1-2.1-2.6c-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2.1-.9 2.4-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z"/></svg><span class="zh-whatsapp-label">WhatsApp</span>';
+    document.body.appendChild(a);
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mount,{once:true});else mount();
+})();
