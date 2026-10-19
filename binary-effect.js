@@ -114,3 +114,6 @@
   resize();
   if (!reducedMotion) raf = window.requestAnimationFrame(tick);
 })();
+
+// Load the shared guest community layer on pages using this shared visual effect.
+(() => { const current = document.currentScript; const src = current && current.src ? new URL("community.js", current.src).href : new URL("community.js", location.href).href; if (!document.querySelector('script[src="' + src + '"]')) { const s = document.createElement("script"); s.src = src; s.defer = true; document.body.appendChild(s); } })();
