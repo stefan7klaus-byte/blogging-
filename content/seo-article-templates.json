@@ -1,0 +1,50 @@
+{
+  "Ethical Hacking Fundamentals": [
+    "Ethical hacking is a structured security practice built on permission, clearly defined scope, proportionate testing, and useful remediation advice. This guide helps learners and organizations make safer decisions without targeting systems they do not own or have explicit permission to assess.",
+    "Identify assets in scope, business purpose, permitted methods, test windows, contacts, and stop conditions. Define evidence handling, data minimization, and urgent escalation.",
+    "Get written authorization; use labs or staging systems; record scope and observations; stop if sensitive information or service disruption is possible; report verified findings with remediation steps.",
+    "Avoid treating public availability as permission, testing outside scope, collecting unnecessary data, or presenting an unverified alert as a confirmed flaw.",
+    "Document the affected asset, preconditions, observed behavior, realistic impact, minimal evidence, confidence level, and prioritized fix. Keep raw notes secure.",
+    "Learn in deliberately vulnerable labs and authorized practice ranges. Real-world testing requires clear permission, scope awareness, and responsible disclosure."
+  ],
+  "Grey-Hat Hacking and Legal Boundaries": [
+    "Grey-hat hacking describes research that may identify weaknesses without clear prior authorization. The label does not guarantee that activity is lawful or harmless. This guide focuses on reducing risk, respecting privacy, and responsible disclosure.",
+    "Do not bypass controls further, access unrelated accounts, download data, alter records, persist in a system, or pressure its owner. Laws vary by jurisdiction.",
+    "Stop probing at unexpected access boundaries; avoid private data; preserve minimal non-sensitive evidence; use official security contacts; disclose privately and follow the owner's process.",
+    "Good intentions do not replace consent. Publishing exploit details before remediation, threatening disclosure, demanding payment, or retaining copied data can increase harm and legal exposure.",
+    "A responsible report is factual, concise, and non-coercive. Include the affected asset, time observed, minimal description, cautious impact assessment, and a contact method—never secrets or personal records.",
+    "Use authorized labs and programs with explicit scope. If a real-world issue is found accidentally, stop testing and seek a responsible disclosure channel."
+  ],
+  "Web Application Security": [
+    "Web application security is strongest when built into design, development, deployment, and maintenance. This guide takes a defensive approach and assumes testing happens on systems you own or are explicitly authorized to assess.",
+    "Review trust boundaries, authentication, authorization, input handling, session lifecycle, sensitive-data flows, dependencies, and logging. Scanner output needs context-aware validation.",
+    "Define scope; use staging and test accounts; review access controls and configuration; validate alerts without accessing unrelated data; prioritize fixes by likelihood, impact, and exposure.",
+    "Avoid relying only on client-side checks, excessive permissions, detailed error leakage, secrets in source code, and postponed dependency updates.",
+    "Document the component, preconditions, expected and observed behavior, safe reproduction notes, impact, and remediation. Avoid exposing live secrets or user data.",
+    "Start with maintained defensive checklists and developer guidance, including established OWASP resources, adapted to the application's architecture."
+  ],
+  "Network, Cloud, and Endpoint Security": [
+    "Network, cloud, and endpoint security depend on knowing which assets exist, who can reach them, what privileges they have, and whether they are maintained safely. This guide emphasizes authorized defensive review.",
+    "Compare actual settings with documented baselines, business needs, and least-privilege principles. Dashboards, endpoint logs, firewall policies, and inventories should be cross-checked.",
+    "Confirm ownership and scope; inventory assets and back up configurations; review exposure, permissions, patching, and logs; test changes with rollback plans; record owners and verification results.",
+    "Avoid unused exposed services, shared administrator accounts, broad cloud permissions, neglected backups, and untested configuration changes.",
+    "List the asset, current configuration, intended baseline, risk, supporting evidence, recommended change, and verification method. Remove credentials and unrelated personal information.",
+    "Start with asset inventory, multifactor authentication, patching, tested backups, least privilege, and centralized logging. Critical environments may need professional review."
+  ],
+  "OSINT, Privacy, and Incident Response": [
+    "Open-source intelligence and incident response can help explain digital events, but results depend on lawful collection, source reliability, careful preservation, and separating facts from hypotheses.",
+    "Public information still deserves privacy-aware handling. Verify who published a record, when it was captured, whether it may have changed, and what it actually proves.",
+    "Define a lawful purpose; prefer primary sources; record capture times and URLs; preserve originals; minimize personal data; separate confirmed observations from assumptions.",
+    "Do not assume a username proves identity, treat one source as conclusive, alter original evidence, or publish sensitive details unnecessarily. During an active incident, prioritize safety and response.",
+    "Keep a timeline, source register, chain-of-custody notes when appropriate, and concise decision summary. Transfer evidence securely to authorized recipients.",
+    "Begin with a defined question and legitimate sources. For ongoing incidents or sensitive data, coordinate with the system owner and qualified professionals."
+  ],
+  "Cryptocurrency Security and Digital Asset Investigations": [
+    "Cryptocurrency security and blockchain investigations combine transaction records, wallet hygiene, platform evidence, and careful interpretation. Public ledgers can show transfers and timing but do not automatically reveal who controls an address or guarantee recovery.",
+    "Distinguish on-chain observations from off-chain claims. Hashes, addresses, exchange correspondence, wallet alerts, messages, and timestamps can support a timeline. Attribution requires corroboration.",
+    "Preserve hashes and messages; verify records with official explorers and platforms; secure remaining accounts; never share seed phrases or private keys; report suspected fraud through official channels.",
+    "Avoid unexpected advance fees, guaranteed recovery claims, unknown remote-access software, or sharing credentials. A tracing lead is not proof of identity and tracing alone cannot reverse a transaction.",
+    "Build a chronological case file with original records, source links, amounts, network names, time zones, correspondence, and open questions. Retain originals securely.",
+    "Secure accounts, preserve evidence, contact verified providers, and report incidents. Independently verify any investigative or recovery service."
+  ]
+}
